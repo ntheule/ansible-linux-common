@@ -12,11 +12,12 @@
 
 - name: Disable existing MOTD scripts
   ansible.builtin.file:
-    path: /etc/update-motd.d/*
+    path: /etc/update-motd.d
     mode: '0644'
-    state: touch
+    state: directory
     owner: root
     group: root
+    recurse: true
   become: true
 
 - name: Copy new MOTD script
