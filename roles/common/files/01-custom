@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "GENERAL SYSTEM INFORMATION"
+/usr/bin/screenfetch
+echo
+echo "SYSTEM DISK USAGE"
+export TERM=xterm; inxi -D
+echo
+echo "YOU HAVE ACCESSED A SECURE SYSTEM. IF YOU ARE NOT AUTHORIZED, EXIT IMMEDIATELY"

@@ -1,0 +1,29 @@
+---
+
+- name: Install useful programs
+  ansible.builtin.apt:
+    name:
+    - inxi
+    - screenfetch
+    - screen
+    update-cache: true
+    state: latest
+  become: true
+
+- name: Disable existing MOTD scripts
+  ansible.builtin.file:
+    path: /etc/update-motd.d/*
+    mode: '0644'
+    state: touch
+    owner: root
+    group: root
+  become: true
+
+- name: Copy new MOTD script
+  ansible.builtin.copy:
+    src: 01-custom
+    dest: /etc/update-motd.d/01-custom
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
