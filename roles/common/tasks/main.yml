@@ -6,6 +6,7 @@
     - inxi
     - screenfetch
     - screen
+    - qemu-guest-agent
     update-cache: true
     state: latest
   become: true
