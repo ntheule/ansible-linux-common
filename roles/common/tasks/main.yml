@@ -11,6 +11,13 @@
     state: latest
   become: true
 
+- name: Ensure qemu-guest-agent is enabled
+  ansible.builtin.systemd:
+    name: qemu-guest-agent
+    enabled: true
+    state: restarted
+  become: true
+
 - name: Disable existing MOTD scripts
   ansible.builtin.file:
     path: /etc/update-motd.d
